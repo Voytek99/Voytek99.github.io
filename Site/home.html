@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Backup</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .input-field {
+            margin-bottom: 10px;
+        }
+        .output-field {
+            margin-top: 10px;
+        }
+        .output-field input {
+            width: 100%;
+        }
+        .button {
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="input-field">
+        <label for="log-input">Log Input:</label><br>
+        <textarea id="log-input" rows="10" cols="100"></textarea>
+    </div>
+    <button class="button" onclick="processLog()">Process Log</button>
+    <div class="output-field">
+    
+    
+        <label for="session-output">Connect:</label>
+        <input type="text" id="session-output" readonly><br>
+        <label for="view-output">View worflows:</label>
+        <input type="text" id="view-output" readonly>
+        <label for="time-output">Time of worflows:</label>
+        <input type="text" id="time-output" readonly>
+        <label for="restart-output">Time of worflows:</label>
+        <input type="text" id="restart-output" readonly>
+
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
