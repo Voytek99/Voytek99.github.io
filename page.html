@@ -3,9 +3,52 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Button Row Example</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    
+    <div class="button-container">
+        <div class="top-buttons">
+            <a href="https://example.com/old" class="button_main">Stare</a>
+            <a href="https://example.com/backups" class="button_main">Backupy</a>
+            <a href="https://example.com/emails" class="button_main">Maile</a>
+        </div>
+        <div class="button-row">
+            <button class="button" onclick="showInfo('info_cold_start')">COLD START</button>
+            <button class="button" onclick="showInfo('info_cpu_threshold')">CPU THRESHOLD</button>
+            <button class="button" onclick="showInfo('info_lrad_failure')">LRAD_FAILURE/MULTIPLE</button>
+            <button class="button" onclick="showInfo('info_bad_link')">BAD LINK/FLAPPING LINE port logiczny</button>
+            <button class="button" onclick="showInfo('info_fru_fault')">FRU FAULT</button>
+        </div>
+        <div id="info_cold_start" class="info-block">
+            <button class="copy-button" onclick="copyText('text1')">Kopiuj 'show system uptime'</button>
+            <button class="copy-button" onclick="copyText('text2')">Kopiuj 'show virtual-chassis'</button>
+            <button class="copy-button" onclick="copyText('text3')">Kopiuj 'show version | inc up | Last'</button>
+            <button class="copy-button" onclick="copyText('text4')">Kopiuj 'show switch'</button>
+            <h3>JUNIPER</h3>
+            <pre id="text1">show system uptime</pre>
+            <pre id="text2">show virtual-chassis</pre>
+            <h3>Cisco</h3>
+            <pre id="text3">show version | inc up | Last</pre>
+            <pre id="text4">show switch</pre>
+        </div>
+        <div id="info_cpu_threshold" class="info-block">
+            <button class="copy-button" onclick="copyText('text_cpu_threshold')">Kopiuj</button>
+            Informacje o CPU THRESHOLD
+        </div>
+        <div id="info_lrad_failure" class="info-block">
+            <button class="copy-button" onclick="copyText('text_lrad_failure')">Kopiuj</button>
+            Informacje o LRAD_FAILURE/MULTIPLE
+        </div>
+        <div id="info_bad_link" class="info-block">
+            <button class="copy-button" onclick="copyText('text_bad_link')">Kopiuj</button>
+            Informacje o BAD LINK/FLAPPING LINE port logiczny
+        </div>
+        <div id="info_fru_fault" class="info-block">
+            <button class="copy-button" onclick="copyText('text_fru_fault')">Kopiuj</button>
+            Informacje o FRU FAULT
+        </div>
+    </div>
+    <script src="page.js"></script>
 </body>
 </html>
