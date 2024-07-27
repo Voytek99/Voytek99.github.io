@@ -68,4 +68,15 @@ function processLog() {
     } else {
         console.log("Required variables are not defined. Check the regex or input data.");
     }
+    document.getElementById('session-output').value = session;
+    document.getElementById('view-output').value = view;
+    document.getElementById('time-output').value = time;
+    document.getElementById('restart-output').value = restart;
 }
+function copyToClipboard(elementId) {
+    const inputElement = document.getElementById(elementId);
+    inputElement.select();
+    inputElement.setSelectionRange(0, 99999); // For mobile devices
+    document.execCommand('copy');
+}
+

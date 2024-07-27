@@ -21,6 +21,9 @@
         .button {
             margin-top: 10px;
         }
+        .copy-button {
+            margin-left: 10px;
+        }
     </style>
 </head>
 <body>
@@ -30,17 +33,18 @@
     </div>
     <button class="button" onclick="processLog()">Process Log</button>
     <div class="output-field">
-    
-    
         <label for="session-output">Connect:</label>
-        <input type="text" id="session-output" readonly><br>
-        <label for="view-output">View worflows:</label>
+        <input type="text" id="session-output" readonly>
+        <button class="copy-button" onclick="copyToClipboard('session-output')">Copy</button><br>
+        <label for="view-output">View workflows:</label>
         <input type="text" id="view-output" readonly>
-        <label for="time-output">Time of worflows:</label>
+        <button class="copy-button" onclick="copyToClipboard('view-output')">Copy</button><br>
+        <label for="time-output">Time of workflows:</label>
         <input type="text" id="time-output" readonly>
+        <button class="copy-button" onclick="copyToClipboard('time-output')">Copy</button><br>
         <label for="restart-output">Restart backup:</label>
         <input type="text" id="restart-output" readonly>
-
+        <button class="copy-button" onclick="copyToClipboard('restart-output')">Copy</button>
     </div>
     <script src="script.js"></script>
 </body>
