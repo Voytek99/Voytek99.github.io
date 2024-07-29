@@ -7,11 +7,18 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <div class="button-container">
+        <div class="top-buttons">
+            <a href="https://wojciechmierzwa.github.io/page" class="button_main">Stare</a>
+            <a href="https://wojciechmierzwa.github.io/index" class="button_main">Backupy</a>
+            <a href="https://wojciechmierzwa.github.io/mail" class="button_main">Maile</a>
+            <a href="https://wojciechmierzwa.github.io/snx" class="button_main">SNX</a>
+        </div>
     <h1>Extract Ticket Information</h1>
     <form id="ticketForm">
         <label for="inputText">Paste the text below:</label>
         <textarea id="inputText" name="inputText"></textarea>
-        <button type="button" onclick="extractInformation()">Extract Information</button>
+        <button class="button" type="button" onclick="extractInformation()">Extract Information</button>
     </form>
 
     <div class="output-field">
@@ -41,7 +48,7 @@
             <button class="copy-button" onclick="copyToClipboard('secondLine')">Copy</button>
         </div>
     </div>
-
+</div>
     <script src="snx.js"></script>
 </body>
 </html>
