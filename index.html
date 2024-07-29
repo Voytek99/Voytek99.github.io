@@ -4,29 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Backup</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 20px;
-        }
-        .input-field {
-            margin-bottom: 10px;
-        }
-        .output-field {
-            margin-top: 10px;
-        }
-        .output-field input {
-            width: 100%;
-        }
-        .button {
-            margin-top: 10px;
-        }
-        .copy-button {
-            margin-left: 10px;
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <div class="button-container">
     <div class="input-field">
         <label for="log-input">Log Input:</label><br>
         <textarea id="log-input" rows="10" cols="100"></textarea>
@@ -45,6 +26,7 @@
         <label for="restart-output">Restart backup:</label>
         <input type="text" id="restart-output" readonly>
         <button class="copy-button" onclick="copyToClipboard('restart-output')">Copy</button>
+    </div>
     </div>
     <script src="script.js"></script>
 </body>
