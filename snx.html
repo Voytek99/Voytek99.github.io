@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ticket Information Extractor</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        textarea {
+            width: 100%;
+            height: 300px;
+        }
+        .results {
+            margin-top: 20px;
+        }
+        .result-item {
+            margin-bottom: 10px;
+        }
+        .result-label {
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>Extract Ticket Information</h1>
+    <form id="ticketForm">
+        <label for="inputText">Paste the text below:</label>
+        <textarea id="inputText" name="inputText"></textarea>
+        <button type="button" onclick="extractInformation()">Extract Information</button>
+    </form>
+
+    <div class="output-field">
+        <div class="result-item">
+            <span class="result-label">Ticket Number:</span>
+            <input type="text" id="ticketNumber" readonly>
+            <button class="copy-button" onclick="copyToClipboard('ticketNumber')">Copy</button>
+        </div>
+        <div class="result-item">
+            <span class="result-label">Short Description:</span>
+            <input type="text" id="shortDescription" readonly>
+            <button class="copy-button" onclick="copyToClipboard('shortDescription')">Copy</button>
+        </div>
+        <div class="result-item">
+            <span class="result-label">Description:</span>
+            <textarea id="description" readonly></textarea>
+            <button class="copy-button" onclick="copyToClipboard('description')">Copy</button>
+        </div>
+    </div>
+
+    <script src="snx.js"></script>
+</body>
+</html>
