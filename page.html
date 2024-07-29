@@ -5,6 +5,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Button Row Example</title>
     <link rel="stylesheet" href="style.css">
+    <style>
+        .info-block {
+            display: none; /* Ukrywa wszystkie bloki informacji domyślnie */
+        }
+        .button {
+            padding: 10px;
+            margin: 5px;
+            cursor: pointer;
+        }
+        .button_main {
+            padding: 10px;
+            margin: 5px;
+            text-decoration: none;
+            color: white;
+            background-color: #007BFF;
+            border-radius: 5px;
+        }
+        .copy-button {
+            padding: 5px;
+            margin-top: 5px;
+        }
+        textarea {
+            width: 100%;
+            height: 100px;
+        }
+    </style>
 </head>
 <body>
     <div class="button-container">
@@ -13,7 +39,6 @@
             <a href="https://example.com/backups" class="button_main">Backupy</a>
             <a href="https://example.com/emails" class="button_main">Maile</a>
             <a href="https://example.com/emails" class="button_main">SNX</a>
-            
         </div>
         <div class="button-row">
             <button class="button" onclick="showInfo('info_cold_start')">COLD START</button>
@@ -36,31 +61,51 @@
         </div>
         <div id="info_cpu_threshold" class="info-block">
             <h3>Cisco</h3>
-            <pre id="text1">show processes cpu sorted 5min | ex 0.00</pre>
-            <button class="copy-button" onclick="copyText('text1')">Kopiuj show processes cpu sorted 5min | ex 0.00</button>
-            <pre id="text2">sh processes cpu history</pre>
-            <button class="copy-button" onclick="copyText('text2')">Kopiuj sh processes cpu history</button>
+            <pre id="text5">show processes cpu sorted 5min | ex 0.00</pre>
+            <button class="copy-button" onclick="copyText('text5')">Kopiuj 'show processes cpu sorted 5min | ex 0.00'</button>
+            <pre id="text6">sh processes cpu history</pre>
+            <button class="copy-button" onclick="copyText('text6')">Kopiuj 'sh processes cpu history'</button>
             <h3>JUNIPER</h3>
-            <pre id="text3">show snmp mib walk jnxOperatingCPU</pre>
-            <button class="copy-button" onclick="copyText('text3')">Kopiuj show snmp mib walk jnxOperatingCPU</button>
+            <pre id="text7">show snmp mib walk jnxOperatingCPU</pre>
+            <button class="copy-button" onclick="copyText('text7')">Kopiuj 'show snmp mib walk jnxOperatingCPU'</button>
         </div>
         <div id="info_lrad_failure" class="info-block">
-            <button class="copy-button" onclick="copyText('text_lrad_failure')">Kopiuj</button>
-            Informacje o LRAD_FAILURE/MULTIPLE
+            <textarea id="text_lrad_failure" placeholder="Wklej dane tutaj..."></textarea>
+            <button class="button" onclick="extractDeviceNames()">Generuj komendy</button>
+            <h3>Most</h3>
+            <label for="command1">Command1:</label>
+            <input type="text" id="command1" readonly>
+            <button class="copy-button" onclick="copyToClipboard('command1')">Copy</button><br>
+            <label for="command2">Command2:</label>
+            <input type="text" id="command2" readonly>
+            <button class="copy-button" onclick="copyToClipboard('command2')">Copy</button><br>
+            <h3>Wintershall</h3>
+            <label for="command3">Command3:</label>
+            <input type="text" id="command3" readonly>
+            <button class="copy-button" onclick="copyToClipboard('command3')">Copy</button><br>
+            <label for="command4">Command4:</label>
+            <input type="text" id="command4" readonly>
+            <button class="copy-button" onclick="copyToClipboard('command4')">Copy</button><br>
+            <div id="deviceNames"></div> <!-- Dodaj ten element, aby wyświetlać wyniki -->
         </div>
         <div id="info_bad_link" class="info-block">
-            <button class="copy-button" onclick="copyText('text_bad_link')">Kopiuj</button>
-            Informacje o BAD LINK/FLAPPING LINE port logiczny
+                <pre id="text8">ping routing-instance WAN_0  8.8.8.8</pre>
+                <button class="copy-button" onclick="copyText('text8')">ping routing-instance WAN_0 8.8.8.8</button>
+                <pre id="text9">ping routing-instance WAN_1  8.8.8.8</pre>
+                <button class="copy-button" onclick="copyText('text9')">ping routing-instance WAN_1 8.8.8.8</button>
+                <pre id="text10">ping routing-instance WAN_2  8.8.8.8</pre>
+                <button class="copy-button" onclick="copyText('text10')">ping routing-instance WAN_2 8.8.8.8</button>
+            </div>
         </div>
         <div id="info_fru_fault" class="info-block">
             <h3>Cisco</h3>
-            <pre id="text1">show environment all</pre>
-            <button class="copy-button" onclick="copyText('text1')">Kopiuj show environment all</button>
-            <pre id="text2">show log</pre>
-            <button class="copy-button" onclick="copyText('text2')">Kopiuj show log</button>
+            <pre id="text11">show environment all</pre>
+            <button class="copy-button" onclick="copyText('text11')">Kopiuj 'show environment all'</button>
+            <pre id="text12">show log</pre>
+            <button class="copy-button" onclick="copyText('text12')">Kopiuj 'show log'</button>
             <h3>JUNIPER</h3>
-            <pre id="text3">show chassis environment</pre>
-            <button class="copy-button" onclick="copyText('text3')">Kopiuj show chassis environment</button>
+            <pre id="text13">show chassis environment</pre>
+            <button class="copy-button" onclick="copyText('text13')">Kopiuj 'show chassis environment'</button>
         </div>
     </div>
     <script src="page.js"></script>
