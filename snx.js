@@ -24,6 +24,8 @@ function extractInformation() {
     document.getElementById('ticketNumber').value = ticketNumber;
     document.getElementById('shortDescription').value = shortDescription;
     document.getElementById('description').value = description;
+    document.getElementById('secondLine').value = "SNXSNX";
+    document.getElementById('telekom').value = "Your Ref ID on our site: ";
 }
 
 function copyToClipboard(elementId) {

@@ -23,20 +23,26 @@
             <button class="button" onclick="showInfo('info_fru_fault')">FRU FAULT</button>
         </div>
         <div id="info_cold_start" class="info-block">
-            <button class="copy-button" onclick="copyText('text1')">Kopiuj 'show system uptime'</button>
-            <button class="copy-button" onclick="copyText('text2')">Kopiuj 'show virtual-chassis'</button>
-            <button class="copy-button" onclick="copyText('text3')">Kopiuj 'show version | inc up | Last'</button>
-            <button class="copy-button" onclick="copyText('text4')">Kopiuj 'show switch'</button>
             <h3>JUNIPER</h3>
             <pre id="text1">show system uptime</pre>
+            <button class="copy-button" onclick="copyText('text1')">Kopiuj 'show system uptime'</button>
             <pre id="text2">show virtual-chassis</pre>
+            <button class="copy-button" onclick="copyText('text2')">Kopiuj 'show virtual-chassis'</button>
             <h3>Cisco</h3>
             <pre id="text3">show version | inc up | Last</pre>
+            <button class="copy-button" onclick="copyText('text3')">Kopiuj 'show version | inc up | Last'</button>
             <pre id="text4">show switch</pre>
+            <button class="copy-button" onclick="copyText('text4')">Kopiuj 'show switch'</button>
         </div>
         <div id="info_cpu_threshold" class="info-block">
-            <button class="copy-button" onclick="copyText('text_cpu_threshold')">Kopiuj</button>
-            Informacje o CPU THRESHOLD
+            <h3>Cisco</h3>
+            <pre id="text1">show processes cpu sorted 5min | ex 0.00</pre>
+            <button class="copy-button" onclick="copyText('text1')">Kopiuj show processes cpu sorted 5min | ex 0.00</button>
+            <pre id="text2">sh processes cpu history</pre>
+            <button class="copy-button" onclick="copyText('text2')">Kopiuj sh processes cpu history</button>
+            <h3>JUNIPER</h3>
+            <pre id="text3">show snmp mib walk jnxOperatingCPU</pre>
+            <button class="copy-button" onclick="copyText('text3')">Kopiuj show snmp mib walk jnxOperatingCPU</button>
         </div>
         <div id="info_lrad_failure" class="info-block">
             <button class="copy-button" onclick="copyText('text_lrad_failure')">Kopiuj</button>
@@ -47,8 +53,14 @@
             Informacje o BAD LINK/FLAPPING LINE port logiczny
         </div>
         <div id="info_fru_fault" class="info-block">
-            <button class="copy-button" onclick="copyText('text_fru_fault')">Kopiuj</button>
-            Informacje o FRU FAULT
+            <h3>Cisco</h3>
+            <pre id="text1">show environment all</pre>
+            <button class="copy-button" onclick="copyText('text1')">Kopiuj show environment all</button>
+            <pre id="text2">show log</pre>
+            <button class="copy-button" onclick="copyText('text2')">Kopiuj show log</button>
+            <h3>JUNIPER</h3>
+            <pre id="text3">show chassis environment</pre>
+            <button class="copy-button" onclick="copyText('text3')">Kopiuj show chassis environment</button>
         </div>
     </div>
     <script src="page.js"></script>

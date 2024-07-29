@@ -21,7 +21,5 @@ function copyText(elementId) {
     tempTextArea.select();
     document.execCommand('copy');
     document.body.removeChild(tempTextArea);
-    
-    // Opcjonalnie, możesz dodać jakiś komunikat informujący o skopiowaniu
-    alert('Tekst skopiowany do schowka!');
+
 }
