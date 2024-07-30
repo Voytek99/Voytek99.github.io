@@ -51,7 +51,7 @@ function extractDeviceNames() {
     div.textContent = deviceName;
     resultsDiv.appendChild(div);
 
-    const command1 = `show ap summary AP ${deviceName}`;
+    const command1 = `show ap summary ${deviceName}`;
     const command2 = `grep include "${deviceName}" show ap join stats summary all`;
     const command3 = `sh ap sum | ${deviceName}`;
     const command4 = `grep include "${deviceName}" sh ap summary`;
