@@ -134,9 +134,10 @@ function findIPAddress(text) {
     // Use the regular expression to find IP addresses in the text
     const ipAddresses = text.match(ipRegex);
 
-    // Return the first IP address found, or a message if none found
-    return ipAddresses ? ipAddresses[0] : 'No IP address found';
+    // Return the last IP address found, or a message if none found
+    return ipAddresses ? ipAddresses[ipAddresses.length - 1] : 'No IP address found';
 }
+
 
 function findPortDescriptor(text) {
     // Regular expression to match the port descriptor (e.g., ge-0/1/3)
