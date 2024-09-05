@@ -121,7 +121,7 @@ function classify(){
     if(ticketArea.includes("Bahlsen") && (ticketArea.includes("FLAPPING_LINE")||ticketArea.includes("BAD_LINK"))){
 
         const b_port=findBahlsenPort(ticketArea);
-        const bahlsen = [`show configuration | display set | match WAN.trust.${b_port}`, "ping routing-instance WAN_0 8.8.8.8",
+        const bahlsen = [`show configuration | display set | match WAN.*trust.*${b_port}`, "ping routing-instance WAN_0 8.8.8.8",
             "ping routing-instance WAN_1 8.8.8.8","ping routing-instance WAN_2 8.8.8.8"];
         printRows(bahlsen, commandList);
     }
