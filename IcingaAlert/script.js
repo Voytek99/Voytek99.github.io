@@ -28,7 +28,8 @@ function parseTextFile(text) {
 }
 
 function sortDataByTimestamp(data) {
-    return data.sort((a, b) => new Date(a.timestamp) - new Date(b.timestamp));
+    // Sort in descending order (newest first)
+    return data.sort((a, b) => new Date(b.timestamp) - new Date(a.timestamp));
 }
 
 function displayData(data) {
@@ -38,12 +39,28 @@ function displayData(data) {
     data.forEach(row => {
         const tr = document.createElement('tr');
         tr.innerHTML = `
-            <td>${row.link}</td>
+            <td><a href="${row.link}" target="_blank">${row.link}</a></td>
             <td>${row.name}</td>
             <td>${row.alert}</td>
             <td>${row.server}</td>
             <td>${row.timestamp}</td>
+            <td>
+                <button onclick="sendMail('${row.name}', '${row.server}', '${row.alert}', '${row.timestamp}')">Send Email</button>
+            </td>
         `;
         tableBody.appendChild(tr);
     });
+}
+
+function sendMail(name, server, alert, timestamp) {
+    const subject = `Alert for ${server}`;
+    const recipient = `${name}@yourcompany.com`; // Customize this as needed
+    const body = `
+        Alert: ${alert}
+        Server: ${server}
+        Timestamp: ${timestamp}
+    `;
+    
+    const mailtoLink = `mailto:${recipient}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    window.location.href = mailtoLink;
 }
