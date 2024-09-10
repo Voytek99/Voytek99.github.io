@@ -15,7 +15,7 @@ const contact_to_email = {
     "dlde_ats_dbs_db2": "dlde-ats-dbs-db2@atos.net"
 };
 
-const ccEmail = "wojciech.piotr.mierzwa@gmail.com";  // Always CC this email
+const ccEmail = "gmpl-BridgePL-SMB@atos.net";  // Always CC this email
 
 function loadFile() {
     fetch('scraped_data.txt')  // Name of your text file
@@ -76,8 +76,8 @@ function sendMail(server, name, alert, timestamp) {
         recipients.push(`${name}@yourcompany.com`);
     }
 
-    const subject = `${server}`;
-    const body = `Hallo Team,\n\nBitte prüfen.\nDatum der Meldung: ${timestamp.substring(0, 10)}\nDie Uhrzeit: ${timestamp.substring(11)}\n\nMit freundlichen Grüßen,\nIhr Monitoring-Team`;
+    const subject = `${name}`;
+    const body = `Hallo Team,\n\nBitte prüfen.\nDatum der Meldung: ${timestamp.substring(0, 10)}\nDie Uhrzeit: ${timestamp.substring(11)}\n\n`;
     
     // Prepare the mailto link
     const mailtoLink = `mailto:${recipients.join(',')}?cc=${ccEmail}&subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
