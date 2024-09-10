@@ -15,7 +15,7 @@ const contact_to_email = {
     "dlde_ats_dbs_db2": "dlde-ats-dbs-db2@atos.net"
 };
 
-const ccEmail = "gmpl-BridgePL-SMB@atos.net";  // Always CC this email
+const ccEmail = "wojciech.piotr.mierzwa@gmail.com";  // Always CC this email
 
 function loadFile() {
     fetch('scraped_data.txt')  // Name of your text file
@@ -71,7 +71,7 @@ function displayData(data) {
 function sendMail(server, name, alert, timestamp) {
     // Search for the contact emails by checking if any key in contact_to_email exists in the server string
     const recipients = findContactEmails(server);
-    
+
     // If no contacts found, fall back to the default recipient format
     if (recipients.length === 0) {
         recipients.push(`${name}@yourcompany.com`);
@@ -84,7 +84,7 @@ function sendMail(server, name, alert, timestamp) {
         Timestamp: ${timestamp}
     `;
     
-    const mailtoLink = `mailto:${recipients.join(',')}?cc=${ccEmail}&subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    const mailtoLink = `mailto:${recipients.join(',')}&cc=${ccEmail}&subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
     window.location.href = mailtoLink;
 }
 
@@ -92,9 +92,10 @@ function sendMail(server, name, alert, timestamp) {
 function findContactEmails(server) {
     const emails = [];
 
-    // Check if any key in contact_to_email is a substring of the server
+    // Loop through each contact in contact_to_email and check if it's present in the server string
     for (const contact in contact_to_email) {
-        if (server.includes(contact)) {
+        const regex = new RegExp(contact, 'i'); // Case-insensitive check
+        if (regex.test(server)) {  // If contact string is found in server
             emails.push(contact_to_email[contact]);
         }
     }
