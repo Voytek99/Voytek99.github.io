@@ -67,7 +67,6 @@ function displayData(data) {
     });
 }
 
-// Function to send mail based on the server name and add CC email
 function sendMail(server, name, alert, timestamp) {
     // Search for the contact emails by checking if any key in contact_to_email exists in the server string
     const recipients = findContactEmails(server);
@@ -78,17 +77,15 @@ function sendMail(server, name, alert, timestamp) {
     }
 
     const subject = `${server}`;
-
-    if(alert.contains("CRITICAL")){
-        const body = `Hallo Team,
-        Bitte prüfen.
-        Datum der Meldung: ${timestamp.substring(0,10)} Die Uhrzeit: ${substring(11)}
-    `;
-    }
+    const body = `Hallo Team,\n\nBitte prüfen.\nDatum der Meldung: ${timestamp.substring(0, 10)}\nDie Uhrzeit: ${timestamp.substring(11)}\n\nMit freundlichen Grüßen,\nIhr Monitoring-Team`;
     
-    const mailtoLink = `mailto:${recipients.join(',')}&cc=${ccEmail}&subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    // Prepare the mailto link
+    const mailtoLink = `mailto:${recipients.join(',')}?cc=${ccEmail}&subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    
+    // Redirect to mailto link
     window.location.href = mailtoLink;
 }
+
 
 function findContactEmails(server) {
     const emails = [];
