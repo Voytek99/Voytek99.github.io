@@ -15,6 +15,8 @@ const contact_to_email = {
     "dlde_ats_dbs_db2": "dlde-ats-dbs-db2@atos.net"
 };
 
+const ccEmail = "wojciech.piotr.mierzwa@gmail.com";
+
 function loadFile() {
     fetch('scraped_data.txt')  // Name of your text file
         .then(response => response.text())
@@ -65,9 +67,9 @@ function displayData(data) {
     });
 }
 
-// Function to send mail based on the server name
+// Function to send mail based on the server name and add CC email
 function sendMail(server, name, alert, timestamp) {
-    // Search for the contact email based on the server or name
+    // Search for the contact email by checking if any key in contact_to_email exists in the server string
     const contactEmail = findContactEmail(server) || `${name}@yourcompany.com`;
 
     const subject = `Alert for ${server}`;
@@ -77,17 +79,17 @@ function sendMail(server, name, alert, timestamp) {
         Timestamp: ${timestamp}
     `;
     
-    const mailtoLink = `mailto:${contactEmail}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    const mailtoLink = `mailto:${contactEmail}?cc=${ccEmail}&subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
     window.location.href = mailtoLink;
 }
 
 // Function to find the email for a contact based on the server string
 function findContactEmail(server) {
-    // Look for known contact names in the server string
+    // Check if any key in contact_to_email is a substring of the server
     for (const contact in contact_to_email) {
         if (server.includes(contact)) {
             return contact_to_email[contact];
         }
     }
-    return null;  // Return null if no contact found
+    return null;  // Return null if no contact is found
 }
