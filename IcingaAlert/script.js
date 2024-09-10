@@ -2,6 +2,19 @@ document.addEventListener('DOMContentLoaded', () => {
     loadFile();
 });
 
+// Object mapping contacts to their email addresses
+const contact_to_email = {
+    "linux_experts": "linux-experts@atos.net",
+    "wbc_ad_win_services": "wbc-ad-win-services@atos.net",
+    "dl_de_uni_moco_service": "dl-de-uni-moco-service@atos.net",
+    "UNI_XSP": "xspteam@atos.net",
+    "wbc_exchange": "wbc-exchange@atos.net",
+    "it_solutions_oco_sap": "IT-Solutions-OCO-SAP@atos.net",
+    "ms_co_oco_sued3": "MS-CO-OCO-Sued3@atos.net",
+    "dl_de_smb_aix": "dl-de-smb-aix@atos.net",
+    "dlde_ats_dbs_db2": "dlde-ats-dbs-db2@atos.net"
+};
+
 function loadFile() {
     fetch('scraped_data.txt')  // Name of your text file
         .then(response => response.text())
@@ -45,22 +58,36 @@ function displayData(data) {
             <td>${row.server}</td>
             <td>${row.timestamp}</td>
             <td>
-                <button onclick="sendMail('${row.name}', '${row.server}', '${row.alert}', '${row.timestamp}')">Send Email</button>
+                <button onclick="sendMail('${row.server}', '${row.name}', '${row.alert}', '${row.timestamp}')">Send Email</button>
             </td>
         `;
         tableBody.appendChild(tr);
     });
 }
 
-function sendMail(name, server, alert, timestamp) {
+// Function to send mail based on the server name
+function sendMail(server, name, alert, timestamp) {
+    // Search for the contact email based on the server or name
+    const contactEmail = findContactEmail(server) || `${name}@yourcompany.com`;
+
     const subject = `Alert for ${server}`;
-    const recipient = `${name}@yourcompany.com`; // Customize this as needed
     const body = `
         Alert: ${alert}
         Server: ${server}
         Timestamp: ${timestamp}
     `;
     
-    const mailtoLink = `mailto:${recipient}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    const mailtoLink = `mailto:${contactEmail}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
     window.location.href = mailtoLink;
+}
+
+// Function to find the email for a contact based on the server string
+function findContactEmail(server) {
+    // Look for known contact names in the server string
+    for (const contact in contact_to_email) {
+        if (server.includes(contact)) {
+            return contact_to_email[contact];
+        }
+    }
+    return null;  // Return null if no contact found
 }
