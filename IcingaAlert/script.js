@@ -77,22 +77,22 @@ function sendMail(server, name, alert, timestamp) {
         recipients.push(`${name}@yourcompany.com`);
     }
 
-    const subject = `Alert for ${server}`;
-    const body = `
-        Alert: ${alert}
-        Server: ${server}
-        Timestamp: ${timestamp}
+    const subject = `${server}`;
+
+    if(alert.contains("CRITICAL")){
+        const body = `Hallo Team,
+        Bitte prüfen.
+        Datum der Meldung: ${timestamp.substring(0,10)} Die Uhrzeit: ${substring(11)}
     `;
+    }
     
     const mailtoLink = `mailto:${recipients.join(',')}&cc=${ccEmail}&subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
     window.location.href = mailtoLink;
 }
 
-// Function to find the emails for contacts based on the server string
 function findContactEmails(server) {
     const emails = [];
 
-    // Loop through each contact in contact_to_email and check if it's present in the server string
     for (const contact in contact_to_email) {
         const regex = new RegExp(contact, 'i'); // Case-insensitive check
         if (regex.test(server)) {  // If contact string is found in server
@@ -100,5 +100,5 @@ function findContactEmails(server) {
         }
     }
 
-    return emails;  // Return an array of matched emails
+    return emails;
 }
