@@ -71,6 +71,7 @@ function displayData(data) {
 function sendMail(server, name, alert, timestamp) {
     // Search for the contact emails by checking if any key in contact_to_email exists in the server string
     const recipients = findContactEmails(server);
+    
     // If no contacts found, fall back to the default recipient format
     if (recipients.length === 0) {
         recipients.push(`${name}@yourcompany.com`);
@@ -83,7 +84,7 @@ function sendMail(server, name, alert, timestamp) {
         Timestamp: ${timestamp}
     `;
     
-    const mailtoLink = `mailto:${recipients.join(',')}&cc=${ccEmail}&subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    const mailtoLink = `mailto:${recipients.join(',')}?cc=${ccEmail}&subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
     window.location.href = mailtoLink;
 }
 
