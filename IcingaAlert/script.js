@@ -15,7 +15,7 @@ const contact_to_email = {
     "dlde_ats_dbs_db2": "dlde-ats-dbs-db2@atos.net"
 };
 
-const ccEmail = "wojciech.piotr.mierzwa@gmail.com";
+const ccEmail = "wojciech.piotr.mierzwa@gmail.com";  // Always CC this email
 
 function loadFile() {
     fetch('scraped_data.txt')  // Name of your text file
@@ -69,8 +69,12 @@ function displayData(data) {
 
 // Function to send mail based on the server name and add CC email
 function sendMail(server, name, alert, timestamp) {
-    // Search for the contact email by checking if any key in contact_to_email exists in the server string
-    const contactEmail = findContactEmail(server) || `${name}@yourcompany.com`;
+    // Search for the contact emails by checking if any key in contact_to_email exists in the server string
+    const recipients = findContactEmails(server);
+    // If no contacts found, fall back to the default recipient format
+    if (recipients.length === 0) {
+        recipients.push(`${name}@yourcompany.com`);
+    }
 
     const subject = `Alert for ${server}`;
     const body = `
@@ -79,17 +83,20 @@ function sendMail(server, name, alert, timestamp) {
         Timestamp: ${timestamp}
     `;
     
-    const mailtoLink = `mailto:${contactEmail}?cc=${ccEmail}&subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    const mailtoLink = `mailto:${recipients.join(',')}&cc=${ccEmail}&subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
     window.location.href = mailtoLink;
 }
 
-// Function to find the email for a contact based on the server string
-function findContactEmail(server) {
+// Function to find the emails for contacts based on the server string
+function findContactEmails(server) {
+    const emails = [];
+
     // Check if any key in contact_to_email is a substring of the server
     for (const contact in contact_to_email) {
         if (server.includes(contact)) {
-            return contact_to_email[contact];
+            emails.push(contact_to_email[contact]);
         }
     }
-    return null;  // Return null if no contact is found
+
+    return emails;  // Return an array of matched emails
 }
