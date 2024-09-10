@@ -15,7 +15,7 @@ const contact_to_email = {
     "dlde_ats_dbs_db2": "dlde-ats-dbs-db2@atos.net"
 };
 
-const ccEmail = "wojciech.piotr.mierzwa@gmail.com";  // Always CC this email
+const ccEmail = "gmpl-BridgePL-SMB@atos.net";  // Always CC this email
 
 function loadFile() {
     fetch('scraped_data.txt')  // Name of your text file
