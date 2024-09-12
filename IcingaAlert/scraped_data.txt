@@ -1,23 +1,23 @@
+https://cmo-moco.it-solutions.atos.net/icingaweb2/monitoring/service/show?host=DEHSWRP0&service=disk-usage-unix-nrpe%2Fvar
+DEHSWRP0 ( PW1 - ERP | productive )
+WARNING
+[0]grp_linux_experts [1]grp_it_solutions_oco_sap [2]grp_gmpl_bridgepl_smb
+2024-09-12 15:43:27
+https://cmo-moco.it-solutions.atos.net/icingaweb2/monitoring/service/show?host=AD-HNL1&service=disk-usage-win-nrpeC%3A
+AD-HNL1 ( productive )
+WARNING
+[0]grp_dl_de_smb_m_windows [1]grp_nobody_in_cmdb [2]grp_gmpl_bridgepl_smb [3]grp_standby___dl_de_smb_m_windows [0]grp_standby___dl_de_smb_m_windows [0]grp_standby___dl_de_smb_m_windows
+2024-09-12 15:06:27
+https://cmo-moco.it-solutions.atos.net/icingaweb2/monitoring/service/show?host=BWPPMDB2&service=all-direct-sap-oracleBWPPMDB2_1521_PMBWP%20%7C%20rman-backup-problems
+BWPPMDB2 ( L051 - ProMail | productive )
+WARNING
+[0]grp_dl_de_uni_daba_service [1]grp_gmpl_bridgepl_smb
+2024-09-12 15:04:25
 https://cmo-moco.it-solutions.atos.net/icingaweb2/monitoring/service/show?host=BWPPMDB2&service=all-direct-sap-oracleBWPPMDB2_1521_ARBWP%20%7C%20BBH%20%7C%20tablespace
 BWPPMDB2 ( L051 - ProMail | productive )
 WARNING
 [0]grp_dl_de_uni_daba_service [1]grp_gmpl_bridgepl_smb
 2024-09-12 10:13:15
-https://cmo-moco.it-solutions.atos.net/icingaweb2/monitoring/service/show?host=XL285&service=disk-usage-unix-nrpe%2Fvar
-XL285 ( test )
-WARNING
-[0]grp_linux_experts [1]grp_nobody_in_cmdb [2]grp_gmpl_bridgepl_smb [0]grp_ticket___linux_experts [0]grp_ticket___linux_experts
-2024-09-12 07:40:36
-https://cmo-moco.it-solutions.atos.net/icingaweb2/monitoring/service/show?host=XL286&service=disk-usage-unix-nrpe%2Fvar
-XL286 ( productive )
-WARNING
-[0]grp_linux_experts [1]grp_nobody_in_cmdb [2]grp_gmpl_bridgepl_smb [0]grp_ticket___linux_experts [0]grp_ticket___linux_experts
-2024-09-12 07:35:01
-https://cmo-moco.it-solutions.atos.net/icingaweb2/monitoring/service/show?host=SMBFCAWSRV0026&service=disk-usage-win-nrpeD%3A
-SMBFCAWSRV0026 ( PaaS - Intranet / Rechnungseingangspr�fung | productive )
-WARNING
-[0]grp_wbc_ad_win_services [1]grp_nobody_in_cmdb [2]grp_gmpl_bridgepl_smb
-2024-09-11 05:53:47
 https://cmo-moco.it-solutions.atos.net/icingaweb2/monitoring/service/show?host=SMBFCAWWEB0003&service=disk-usage-win-nrpeC%3A
 SMBFCAWWEB0003 ( PaaS - Webauftritt | productive )
 WARNING
