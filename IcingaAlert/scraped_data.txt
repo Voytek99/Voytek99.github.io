@@ -1,23 +1,38 @@
-https://cmo-moco.it-solutions.atos.net/icingaweb2/monitoring/service/show?host=XL285&service=disk-usage-unix-nrpe%2Fvar
-XL285 ( test )
+https://cmo-moco.it-solutions.atos.net/icingaweb2/monitoring/service/show?host=SMBKUBUSAPKE21&service=disk-usage-unix-byssh%2Fusr%2Fsap%2FKE2
+SMBKUBUSAPKE21 ( 07 - S/4 HANA Nicht Produktiv | SAP | test )
 WARNING
-[0]grp_linux_experts [1]grp_nobody_in_cmdb [2]grp_gmpl_bridgepl_smb [0]grp_ticket___linux_experts [0]grp_ticket___linux_experts
-2024-09-10 09:24:42
-https://cmo-moco.it-solutions.atos.net/icingaweb2/monitoring/service/show?host=XL286&service=disk-usage-unix-nrpe%2Fvar
-XL286 ( productive )
+[0]grp_it_solutions_oco_sap [1]grp_gmpl_bridgepl_smb
+2024-09-11 06:17:32
+https://cmo-moco.it-solutions.atos.net/icingaweb2/monitoring/service/show?host=SMBFCAWSRV0026&service=disk-usage-win-nrpeD%3A
+SMBFCAWSRV0026 ( PaaS - Intranet / Rechnungseingangspr�fung | productive )
 WARNING
-[0]grp_linux_experts [1]grp_nobody_in_cmdb [2]grp_gmpl_bridgepl_smb [0]grp_ticket___linux_experts [0]grp_ticket___linux_experts
-2024-09-10 08:17:50
+[0]grp_wbc_ad_win_services [1]grp_nobody_in_cmdb [2]grp_gmpl_bridgepl_smb
+2024-09-11 05:53:47
+https://cmo-moco.it-solutions.atos.net/icingaweb2/monitoring/service/show?host=SWMHMUCCENDBP01&service=all-direct-sap-oracleSWMHMUCCENDBP01_1521_CORPUS%20%7C%20rman-backup-problems
+SWMHMUCCENDBP01 ( development )
+WARNING
+[0]grp_nobody_in_cmdb [1]grp_gmpl_bridgepl_smb
+2024-09-11 05:23:44
+https://cmo-moco.it-solutions.atos.net/icingaweb2/monitoring/service/show?host=VM000NPT&service=disk-usage-win-nrpeC%3A
+VM000NPT ( productive )
+WARNING
+[0]grp_wbc_ad_win_services [1]grp_nobody_in_cmdb [2]grp_gmpl_bridgepl_smb
+2024-09-10 23:37:59
+https://cmo-moco.it-solutions.atos.net/icingaweb2/monitoring/service/show?host=SMB006UORA0001&service=all-direct-sap-oracleSMB006UORA0001_1521_PRDWMSLTN%20%7C%20WMSTAB1%20%7C%20tablespace
+SMB006UORA0001 ( SDAG: 3sWMS | 3sWMS | Oracle DB | productive )
+WARNING
+[0]grp_dl_de_uni_daba_service [1]grp_gmpl_bridgepl_smb
+2024-09-10 17:03:42
+https://cmo-moco.it-solutions.atos.net/icingaweb2/monitoring/service/show?host=SWMHGCS01&service=disk-usage-win-nrpeC%3A
+SWMHGCS01 ( L131 - GCS | productive )
+WARNING
+[0]grp_wbc_ad_win_services [1]grp_nobody_in_cmdb [2]grp_gmpl_bridgepl_smb
+2024-09-10 15:16:00
 https://cmo-moco.it-solutions.atos.net/icingaweb2/monitoring/service/show?host=SMBFCAWWEB0003&service=disk-usage-win-nrpeC%3A
 SMBFCAWWEB0003 ( PaaS - Webauftritt | productive )
 WARNING
 [0]grp_wbc_ad_win_services [1]grp_nobody_in_cmdb [2]grp_gmpl_bridgepl_smb
 2024-09-07 20:48:58
-https://cmo-moco.it-solutions.atos.net/icingaweb2/monitoring/service/show?host=SMB000UMOND100&service=disk-usage-unix-nrpe%2Fdatabase%2Finfluxdb
-SMB000UMOND100 ( Atos - Monitoring | Icinga2 | Global | Database Server | productive )
-WARNING
-[0]grp_dl_de_uni_moco_service [1]grp_dl_de_uni_moco_service [2]grp_gmpl_bridgepl_smb
-2024-09-07 10:16:17
 https://cmo-moco.it-solutions.atos.net/icingaweb2/monitoring/service/show?host=SMB000WSRVVO01&service=disk-usage-win-nrpeD%3A
 SMB000WSRVVO01 ( Backup | productive )
 WARNING
@@ -88,76 +103,21 @@ SWMHNBGEX03 ( L010 - Exchange | productive )
 CRITICAL
 [0]grp_wbc_ad_win_services [1]grp_wbc_exchange [2]grp_gmpl_bridgepl_smb
 2024-09-03 05:58:58
-https://cmo-moco.it-solutions.atos.net/icingaweb2/monitoring/service/show?host=XL355&service=disk-usage-unix-nrpe%2Fboot%2Fefi
-XL355 ( productive )
+https://cmo-moco.it-solutions.atos.net/icingaweb2/monitoring/service/show?host=H12HDB&service=disk-usage-unix-nrpe%2Fusr%2Fsap.neu
+H12HDB ( productive )
 CRITICAL
-[0]grp_linux_experts [1]grp_nobody_in_cmdb [2]grp_gmpl_bridgepl_smb [0]grp_ticket___linux_experts [0]grp_ticket___linux_experts
-2024-08-27 16:07:15
-https://cmo-moco.it-solutions.atos.net/icingaweb2/monitoring/service/show?host=XL355&service=disk-usage-unix-nrpe%2F
-XL355 ( productive )
+[0]grp_nobody_in_cmdb [1]grp_gmpl_bridgepl_smb
+2024-07-12 14:44:51
+https://cmo-moco.it-solutions.atos.net/icingaweb2/monitoring/service/show?host=SVSTRSA01&service=ntptime-unix-nrpeOS%20%5B%20SystemTime%20%5D
+SVSTRSA01 ( L099 - UNIFY | productive )
 CRITICAL
-[0]grp_linux_experts [1]grp_nobody_in_cmdb [2]grp_gmpl_bridgepl_smb [0]grp_ticket___linux_experts [0]grp_ticket___linux_experts
-2024-08-27 16:06:24
-https://cmo-moco.it-solutions.atos.net/icingaweb2/monitoring/service/show?host=XL355&service=disk-usage-unix-nrpe%2Ftmp
-XL355 ( productive )
+[0]grp_nobody_in_cmdb [1]grp_nobody_in_cmdb [2]grp_gmpl_bridgepl_smb
+2024-05-02 08:29:24
+https://cmo-moco.it-solutions.atos.net/icingaweb2/monitoring/service/show?host=SVSTRFAS01&service=ntptime-unix-nrpeOS%20%5B%20SystemTime%20%5D
+SVSTRFAS01 ( L099 - UNIFY | productive )
 CRITICAL
-[0]grp_linux_experts [1]grp_nobody_in_cmdb [2]grp_gmpl_bridgepl_smb [0]grp_ticket___linux_experts [0]grp_ticket___linux_experts
-2024-08-27 16:06:06
-https://cmo-moco.it-solutions.atos.net/icingaweb2/monitoring/service/show?host=XL355&service=disk-usage-unix-nrpe%2Fboot
-XL355 ( productive )
-CRITICAL
-[0]grp_linux_experts [1]grp_nobody_in_cmdb [2]grp_gmpl_bridgepl_smb [0]grp_ticket___linux_experts [0]grp_ticket___linux_experts
-2024-08-27 16:06:05
-https://cmo-moco.it-solutions.atos.net/icingaweb2/monitoring/service/show?host=XL355&service=ssh-daemonSSH-Service
-XL355 ( productive )
-CRITICAL
-[0]grp_linux_experts [1]grp_nobody_in_cmdb [2]grp_gmpl_bridgepl_smb [0]grp_ticket___linux_experts [1]grp_ticket___linux_experts [0]grp_ticket___linux_experts
-2024-08-27 16:05:30
-https://cmo-moco.it-solutions.atos.net/icingaweb2/monitoring/service/show?host=XL355&service=procs-unix-nrpecrond
-XL355 ( productive )
-CRITICAL
-[0]grp_linux_experts [1]grp_nobody_in_cmdb [2]grp_gmpl_bridgepl_smb
-2024-08-27 16:05:16
-https://cmo-moco.it-solutions.atos.net/icingaweb2/monitoring/service/show?host=XL355&service=procs-unix-nrpesshd
-XL355 ( productive )
-CRITICAL
-[0]grp_linux_experts [1]grp_nobody_in_cmdb [2]grp_gmpl_bridgepl_smb
-2024-08-27 16:05:02
-https://cmo-moco.it-solutions.atos.net/icingaweb2/monitoring/service/show?host=XL355&service=disk-usage-unix-nrpe%2Fvar
-XL355 ( productive )
-CRITICAL
-[0]grp_linux_experts [1]grp_nobody_in_cmdb [2]grp_gmpl_bridgepl_smb [0]grp_ticket___linux_experts [0]grp_ticket___linux_experts
-2024-08-27 16:04:52
-https://cmo-moco.it-solutions.atos.net/icingaweb2/monitoring/service/show?host=SMBLBPUSAPS21&service=disk-usage-unix-nrpe%2Fmnt%2FPSB_Export
-SMBLBPUSAPS21 ( sandbox )
-CRITICAL
-[0]grp_linux_experts [1]grp_it_solutions_oco_sap [2]grp_gmpl_bridgepl_smb
-2024-08-26 17:53:51
-https://cmo-moco.it-solutions.atos.net/icingaweb2/monitoring/service/show?host=NTVTRSRV02&service=process-win-nrpeSystem-Process%20%5BHealthService%5D
-NTVTRSRV02 ( L141 - HCSB-HuP-Vertrieb | productive )
-CRITICAL
-[0]grp_wbc_ad_win_services [1]grp_gmpl_bridgepl_smb
-2024-08-18 04:58:39
-https://cmo-moco.it-solutions.atos.net/icingaweb2/monitoring/service/show?host=SWMHPKI02&service=process-win-nrpeSystem-Process%20%5BHealthService%5D
-SWMHPKI02 ( L007 - PKI | productive )
-CRITICAL
-[0]grp_wbc_ad_win_services [1]grp_gmpl_bridgepl_smb
-2024-08-18 02:54:14
-https://cmo-moco.it-solutions.atos.net/icingaweb2/monitoring/service/show?host=SWMHADJK01&service=disk-usage-unix-nrpe%2Fappl%2Fdata%2Fdigswmh
-SWMHADJK01 ( L005 - Adjust | Application | test )
-CRITICAL
-[0]grp_linux_experts [1]grp_ms_co_oco_sued3 [2]grp_gmpl_bridgepl_smb
-2024-07-15 09:44:35
-https://cmo-moco.it-solutions.atos.net/icingaweb2/monitoring/service/show?host=SWMHADJK01&service=disk-usage-unix-nrpe%2Fvar%2Flib%2Fdocker%2Fcontainers
-SWMHADJK01 ( L005 - Adjust | Application | test )
-CRITICAL
-[0]grp_linux_experts [1]grp_ms_co_oco_sued3 [2]grp_gmpl_bridgepl_smb
-2024-07-15 09:44:24
-https://cmo-moco.it-solutions.atos.net/icingaweb2/monitoring/service/show?host=SWMHADJK01&service=disk-usage-unix-nrpe%2Fvar%2Flib%2Fdocker
-SWMHADJK01 ( L005 - Adjust | Application | test )
-CRITICAL
-[0]grp_linux_experts [1]grp_ms_co_oco_sued3 [2]grp_gmpl_bridgepl_smb
-2024-07-15 09:43:25
+[0]grp_nobody_in_cmdb [1]grp_nobody_in_cmdb [2]grp_gmpl_bridgepl_smb
+2024-05-02 08:28:02
 https://cmo-moco.it-solutions.atos.net/icingaweb2/monitoring/service/show?host=SJASL003&service=disk-usage-unix-nrpe%2Foraarch
 SJASL003 ( 1 - SAP - PM2 | San Luis Potosi | productive )
 UNKNOWN
