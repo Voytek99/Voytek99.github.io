@@ -6,7 +6,7 @@ let ticketArea = "";
 //old queue
 const cold_start =["JUNIPER","show system uptime","show virtual-chassis",
     "show version | inc up |Last","show switch","HP",
-    "sh system information", "dis ver"];
+    "sh system information", "dis ver","sh env"];
 
 const cpu_threshold =[ "sh cpu", "show system process", "show processes cpu sorted 5min | ex 0.00",
      "sh processes cpu history", "show chassis routing-engine", "show snmp mib walk jnxOperatingCPU"];
@@ -28,9 +28,7 @@ const bad_link = ["show interface port status", "Display interface <port>"];
 
 const fan_fault = ["sh env fan", "show chassis fan", "sh logg | i FAN"];
 
-
-
-//new queue
+const firewall = [];
         
 // Function to copy text to clipboard
 function copyText(text) {
@@ -77,7 +75,7 @@ function classify(){
     if(ticketArea.includes("PL.Network.ADE.BRIDGE") || ticketArea.includes("PL.Network.ADE.Highpriority")){
         //scrapeTicket look check if bridge or higprio then
         const IP_Address = findIPAddress(ticketArea);
-        const regular = [`connect ${IP_Address} -l`, 'PL.Network.ADE.NOC', "Haslo"];
+        const regular = [`connect ${IP_Address} -l`, 'PL.Network.ADE.NOC', "A913424"];
         printRows(regular,basicCommand);
 
     }
@@ -124,6 +122,55 @@ function classify(){
         const bahlsen = [`show configuration | display set | match WAN.*trust.*${b_port}`, "ping routing-instance WAN_0 8.8.8.8",
             "ping routing-instance WAN_1 8.8.8.8","ping routing-instance WAN_2 8.8.8.8"];
         printRows(bahlsen, commandList);
+    }
+    if(ticketArea.includes("firewall") || ticketArea.includes("useme")){
+        var priority = "";
+        const lines = ticketArea.split('\n');
+        let capturing = false;
+        let company = null;
+        const group = "";
+        for (let i = 0; i < lines.length; i++) {
+            const trimmedLine = lines[i].trim();
+            if (trimmedLine === "Customer") {
+                capturing = true;
+                continue; // Skip "Customer" line
+                }
+                if (trimmedLine === "Contact type") {
+                    capturing = false;
+                    break; // Exit loop, as we found "Contact type"
+                    }
+                    if (capturing && trimmedLine.length > 0) {
+                        company = trimmedLine;
+                        break;
+                    }
+            }
+
+        const regexGroup = /2ndL_Workgroup:\s*([A-Za-z0-9._]+)/;
+
+        const matchGroup = ticketArea.match(regexGroup);
+        let workgroup = "";
+        if (matchGroup) {
+              workgroup = matchGroup[1];
+        }
+
+        if(ticketArea.includes("Priority3 - Medium")){
+            priority = 2;
+            workgroup = "was";
+        }
+        if(ticketArea.includes("Priority3 - Medium")){
+            priority = 3;
+        }
+        if(ticketArea.includes("Priority4 - Medium")){
+            priority = 4;
+        }
+        
+            
+        const regex = /\b(INC0\d+)\b/; 
+        const ticketNumber = ticketArea.match(regex)[0];
+
+        const teamsMessage = "Ticket: "+ticketNumber +"\nCustomer: "+ company + "\nPriority: " + priority+ "\nLeci do " + workgroup;
+        const firewall = [workgroup, teamsMessage];
+        printRows(firewall, commandList);
     }
 }
 
