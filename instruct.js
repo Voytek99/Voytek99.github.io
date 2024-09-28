@@ -153,16 +153,16 @@ function classify(){
               workgroup = matchGroup[1];
         }
 
-        if(ticketArea.includes("Priority3 - Medium")){
+        /*if(ticketArea.includes("Priority2 - Medium")){
             priority = 2;
             workgroup = "was";
-        }
-        if(ticketArea.includes("Priority3 - Medium")){
+        }*/
+        if(ticketArea.includes("Priority\n3 - Medium")){
             priority = 3;
         }
-        if(ticketArea.includes("Priority4 - Medium")){
+        /*if(ticketArea.includes("Priority4 - Medium")){
             priority = 4;
-        }
+        }*/
         
             
         const regex = /\b(INC0\d+)\b/; 
