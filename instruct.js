@@ -153,14 +153,14 @@ function classify(){
               workgroup = matchGroup[1];
         }
 
-        /*if(ticketArea.includes("Priority2 - Medium")){
+        if(ticketArea.includes("Priority\n\n2 - High")){
             priority = 2;
             workgroup = "was";
-        }*/
-        if(ticketArea.includes("Priority\n3 - Medium")){
+        }
+        if(ticketArea.includes("Priority\n\n3 - Medium")){
             priority = 3;
         }
-        /*if(ticketArea.includes("Priority4 - Medium")){
+        /*if(ticketArea.includes("Priority\n\n4 - Low")){
             priority = 4;
         }*/
         
