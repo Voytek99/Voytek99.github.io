@@ -153,22 +153,22 @@ function classify(){
               workgroup = matchGroup[1];
         }
 
-        if(ticketArea.includes("Priority\n\n2 - High")){
+        if(ticketArea.includes("2 - High")){
             priority = 2;
             workgroup = "was";
         }
-        if(ticketArea.includes("Priority\n\n3 - Medium")){
+        if(ticketArea.includes("3 - Medium")){
             priority = 3;
         }
-        /*if(ticketArea.includes("Priority\n\n4 - Low")){
+        if(ticketArea.includes("4 - Low")){
             priority = 4;
-        }*/
+        }
         
             
         const regex = /\b(INC0\d+)\b/; 
         const ticketNumber = ticketArea.match(regex)[0];
 
-        const teamsMessage = "Ticket: "+ticketNumber +"\nCustomer: "+ company + "\nPriority: " + priority+ "\nLeci do " + workgroup;
+        const teamsMessage = "Firewall\nTicket: "+ticketNumber +"\nCustomer: "+ company + "\nPriority: " + priority+ "\nLeci do " + workgroup;
         const firewall = [workgroup, teamsMessage];
         printRows(firewall, commandList);
     }
