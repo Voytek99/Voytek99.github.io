@@ -60,15 +60,18 @@ function processLog() {
         const view = `/nsr/protocols/view_statistic/view_workflows.sh | grep ${sg}`;
         const time = `cat /nsr/bin/nw_param | cut -d ";" -f 2,3,5,10,14,15,17 | grep -i ${sg} | grep ${cl}`;
         const restart = `/usr/sbin/nsrworkflow -s ${hostname} -p ${policy} -w ${workflow} -c ${cl} -A "'backup' -l ${level.toLowerCase()}" &`;
+        const root = `sudo su -`
 
         document.getElementById('session-output').value = session;
         document.getElementById('view-output').value = view;
         document.getElementById('time-output').value = time;
         document.getElementById('restart-output').value = restart;
+        document.getElementById('root').value = root;
     } else {
         console.log("Required variables are not defined. Check the regex or input data.");
     }
     document.getElementById('session-output').value = session;
+    document.getElementById('root').value = root;
     document.getElementById('view-output').value = view;
     document.getElementById('time-output').value = time;
     document.getElementById('restart-output').value = restart;
