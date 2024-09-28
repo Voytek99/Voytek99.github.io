@@ -4,42 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Service</title>
-    
-    <!-- Load External JavaScript -->
-    <script src="../loadExtra.js" defer></script>
-    
-
-    <!-- Optional: Function to load the header -->
-    <script>
-        function loadHTML(element, file) {
-            fetch(file)
-                .then(response => {
-                    if (response.ok) {
-                        return response.text();
-                    }
-                    throw new Error('Failed to load file: ' + file);
-                })
-                .then(data => {
-                    element.innerHTML = data;
-                })
-                .catch(error => {
-                    console.error(error);
-                });
-        }
-
-        window.onload = function() {
-            loadHTML(document.getElementById('header-placeholder'), 'header.html');
-        };
-    </script>
+    <script src="service.js" defer></script>
 </head>
 <body>
-    <div id="header-placeholder"></div>
+
     
     <textarea id="inputTicket" name="inputTicket" rows="5" cols="33"></textarea>
     <button onclick="classify()">Generate Commands</button>
     <div id="basicCommand"></div>
     <div id="commandList"></div>
-    <div id="footer-placeholder"></div>
-    <script src="service.js" defer></script>
+
 </body>
 </html>
