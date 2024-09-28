@@ -168,7 +168,7 @@ function classify(){
         const regex = /\b(INC0\d+)\b/; 
         const ticketNumber = ticketArea.match(regex)[0];
 
-        const teamsMessage = "Firewall\nTicket: "+ticketNumber +"\nCustomer: "+ company + "\nPriority: " + priority+ "\nLeci do " + workgroup;
+        const teamsMessage = "Ticket firewallowy leci do "+workgroup+"\nTicket: "+ticketNumber +"\nCustomer: "+ company + "\nPriority: " + priority;
         const firewall = [workgroup, teamsMessage];
         printRows(firewall, commandList);
     }
