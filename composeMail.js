@@ -1,6 +1,9 @@
 let ticketArea = "";
 let ticketArea1 = "";
 let ticketArea2 = "";
+let title = "";
+let specs = "";
+let lcon_location = "";
 
 function copyText(text) {
     navigator.clipboard.writeText(text).then(() => {
@@ -68,11 +71,15 @@ function classify(){
     const room  = extractInfoBetween(ticketArea2, "Room", "Mngd Building");
 
 
-    let specs = "Name: "+hostname +"\nS/N: " + serialNumber + "\nModel ID: " + modelID;
+    specs = "Name: "+hostname +"\nS/N: " + serialNumber + "\nModel ID: " + modelID;
 
-    let lcon_location = "Special Location Info: " + specialLocationInfo +  "\nLocation: " + location+ "\nBuilding: " + building +  "\nFloor: " + floor + "\nRoom: " + room;
-    
-    data = [specs, lcon_location];
+    lcon_location = "Special Location Info: " + specialLocationInfo +  "\nLocation: " + location+ "\nBuilding: " + building +  "\nFloor: " + floor + "\nRoom: " + room;
+    let msg1 = "Hello,\nwe can see that the following device is unreachable:\n\n";
+
+    let msg2 = "\n\nCould You please check it on site? Power status, led status, reboot if needed?\nThank you in advance";
+
+    let finalMsg = msg1+specs+"\n\n"+lcon_location+msg2;
+    data = [title, specs, lcon_location, finalMsg];
     printRows(data,commandList);
 
 }
@@ -101,3 +108,27 @@ function extractDeviceInfo(inputString) {
     console.log("No match found for the input string.");
     return null; // Return null if no match found
 }
+function generateMail() {
+    classify();
+    const emailData = {
+        sender: "sender@example.com",
+        receivers: ["recipient1@example.com", "recipient2@example.com"],
+        receiversCc: ["cc@example.com"],
+        subject: title,
+        message: "This is the body of the email.\n\nThank you!"
+    };
+
+    // Set variables based on email data
+    const from = emailData.sender; // This is typically not used in mailto links
+    const to = emailData.receivers.join(', ');
+    const cc = emailData.receiversCc.join(', ');
+    const subject = emailData.subject;
+    const body = `${emailData.message}`;
+
+    // Encode URI components
+    const mailtoLink = `mailto:${to}?cc=${encodeURIComponent(cc)}&subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    
+    // Open the mail client with the pre-filled email
+    window.location.href = mailtoLink;
+}
+
