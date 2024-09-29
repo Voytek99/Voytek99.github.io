@@ -1,3 +1,48 @@
+<style>
+    /* Basic styling for the footer */
+footer {
+    background-color: #333; /* Dark background */
+    color: #fff; /* White text */
+    text-align: center; /* Center align text */
+    padding: 20px 0; /* Vertical padding */
+    font-size: 14px; /* Slightly smaller font */
+    font-family: 'Arial', sans-serif; /* Clean sans-serif font */
+    position: relative; /* Ensures footer stays below content */
+    bottom: 0; /* Sticks the footer at the bottom */
+    width: 100%; /* Full-width footer */
+}
+
+/* Add hover effect on text */
+footer p:hover {
+    color: #f1c40f; /* Change text color on hover */
+    transition: color 0.3s ease; /* Smooth transition */
+}
+
+/* Add spacing to the text */
+footer p {
+    margin: 0; /* Remove default margins */
+    letter-spacing: 1px; /* Slightly spaced-out letters */
+}
+
+/* Optional: Adding a border at the top for a subtle separator */
+footer::before {
+    content: '';
+    display: block;
+    width: 100px;
+    margin: 0 auto;
+    height: 3px;
+    background-color: #f1c40f; /* Golden accent color */
+    margin-bottom: 15px; /* Space below the border */
+}
+
+/* Responsiveness for smaller screens */
+@media (max-width: 600px) {
+    footer {
+        font-size: 12px; /* Smaller text on small screens */
+    }
+}
+
+</style>
 <!-- footer.html -->
 <footer>
     <p>&copy; 2024 Wojciech Mierzwa. All rights reserved.</p>
