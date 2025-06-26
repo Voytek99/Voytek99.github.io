@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SNX</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="../loadExtra.js" defer></script>
+</head>
+<body>
+    <div id="header-placeholder"></div>
+    <h1>Extract Ticket Information</h1>
+    <form id="ticketForm">
+        <label for="inputText">Paste the text below:</label>
+        <textarea id="inputText" name="inputText"></textarea>
+        <button class="button" type="button" onclick="extractInformation()">Extract Information</button>
+    </form>
+
+    <div class="output-field">
+        <div class="result-item">
+            <span class="result-label">Ticket Number:</span>
+            <input type="text" id="ticketNumber" readonly>
+            <button class="copy-button" onclick="copyToClipboard('ticketNumber')">Copy</button>
+        </div>
+        <div class="result-item">
+            <span class="result-label">Short Description:</span>
+            <input type="text" id="shortDescription" readonly>
+            <button class="copy-button" onclick="copyToClipboard('shortDescription')">Copy</button>
+        </div>
+        <div class="result-item">
+            <span class="result-label">Description:</span>
+            <textarea id="description" readonly></textarea>
+            <button class="copy-button" onclick="copyToClipboard('description')">Copy</button>
+        </div>
+        <div class="result-item">
+            <span class="result-label">Telekom:</span>
+            <textarea id="telekom" readonly></textarea>
+            <button class="copy-button" onclick="copyToClipboard('telekom')">Copy</button>
+        </div>
+        <div class="result-item">
+            <span class="result-label">2nd Line:</span>
+            <textarea id="secondLine" readonly></textarea>
+            <button class="copy-button" onclick="copyToClipboard('secondLine')">Copy</button>
+        </div>
+    </div>
+</div>
+
+    <script src="snx.js"></script>
+</body>
+</html>
