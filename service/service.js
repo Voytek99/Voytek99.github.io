@@ -30,7 +30,7 @@ const fan_fault = ["sh env fan", "show chassis fan", "sh logg | i FAN"];
 
 const firewall = [];
         
-// Function to copy text to clipboard
+
 function copyText(text) {
     navigator.clipboard.writeText(text).then(() => {
        
@@ -39,27 +39,19 @@ function copyText(text) {
     });
 }
 
-// Function to dynamically generate rows based on commands and append them to a given element
 function printRows(commands, element) {
     commands.forEach((car) => {
-        // Create a container div for each car
         const container = document.createElement('div');
         container.className = 'info-block';
 
-        // Create a button to copy the car name
         const button = document.createElement('button');
         button.className = 'copy-button';
         button.innerText = `${car}`;
 
-        // Set up the click event to copy the car name
         button.addEventListener('click', () => {
-            copyText(car);  // Copy car name
+            copyText(car);  
         });
-
-        // Append the button to the container
         container.appendChild(button);
-
-        // Append the container to the specified element
         element.appendChild(container);
     });
 }
@@ -72,20 +64,17 @@ function classify(){
     commandList.innerHTML = '';
     const basicCommand = document.getElementById('basicCommand');
     basicCommand.innerHTML = '';
-    if(ticketArea.includes("PL.Network.ADE.BRIDGE") || ticketArea.includes("PL.Network.ADE.Highpriority")){
-        //scrapeTicket look check if bridge or higprio then
-        const IP_Address = findIPAddress(ticketArea);
-        const regular = [`connect ${IP_Address} -l`, 'PL.Network.ADE.NOC', "A913424"];
-        printRows(regular,basicCommand);
+    const IP_Address = findIPAddress(ticketArea);
+    const regular = [`connect ${IP_Address} -l`];
+    printRows(regular,basicCommand);
 
-    }
     if(ticketArea.includes("COLD_START")){
         printRows(cold_start, commandList);
     }
     if(ticketArea.includes("CPU_THRESHOLD")){
         printRows(cpu_threshold, commandList);
     }
-    if(ticketArea.includes("LRAD_FAILURE" || "LRAD_MULTIPLE")){
+    if(ticketArea.includes("LRAD_FAILURE") || ticketArea.includes("LRAD_MULIPLE")){
 
         const AP = findAP(ticketArea);
 
@@ -116,6 +105,27 @@ function classify(){
     if(ticketArea.includes("FAN_FAULT")){
         printRows(fan_fault, commandList);
     }
+    if(ticketArea.includes("PCT_ERROR_THRESHOLD")){
+        const port = findPortDescriptor(ticketArea);
+        const pct = [`show interface ${port} extensive`] 
+        printRows(pct, commandList);
+    }
+    if(ticketArea.includes("Control_Connections_Downs")){
+        const con = ["show sdwan control connections"] 
+        printRows(con, commandList);
+    }
+    if(ticketArea.includes("SPANTREE_ROOT_CHANGE")){
+        
+        const port = findPortDescriptor(ticketArea);
+        const span = [`show spanning-tree bridge detail", "show spanning-tree interface brief", "show interface ${port}`];
+        printRows(span, commandList);
+    }
+    if(ticketArea.includes("BW_IN_THRESHOLD") || ticketArea.includes("BW_OUT_THRESHOLD")){
+        const item_name = findItemBW(ticketArea);
+        const bw = [`show int ${item_name}`]
+        printRows(bw, commandList);
+    }
+    
     if(ticketArea.includes("Bahlsen") && (ticketArea.includes("FLAPPING_LINE")||ticketArea.includes("BAD_LINK"))){
 
         const b_port=findBahlsenPort(ticketArea);
@@ -137,7 +147,7 @@ function classify(){
                 }
                 if (trimmedLine === "Contact type") {
                     capturing = false;
-                    break; // Exit loop, as we found "Contact type"
+                    break; 
                     }
                     if (capturing && trimmedLine.length > 0) {
                         company = trimmedLine;
@@ -153,47 +163,19 @@ function classify(){
               workgroup = matchGroup[1];
         }
 
-        if(ticketArea.includes("2 - High")){
-            priority = 2;
-            workgroup = "was";
-        }
-        if(ticketArea.includes("3 - Medium")){
-            priority = 3;
-        }
-        if(ticketArea.includes("4 - Low")){
-            priority = 4;
-        }
-        
-            
-        const regex = /\b(INC0\d+)\b/; 
-        const ticketNumber = ticketArea.match(regex)[0];
-
-        const teamsMessage = "Ticket firewallowy leci do "+workgroup+"\nTicket: "+ticketNumber +"\nCustomer: "+ company + "\nPriority: " + priority;
-        const firewall = [workgroup, teamsMessage];
-        printRows(firewall, commandList);
     }
 }
 
 function findIPAddress(text) {
-    // Regular expression to match IP address
     const ipRegex = /\b\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}\b/g;
-
-    // Use the regular expression to find IP addresses in the text
     const ipAddresses = text.match(ipRegex);
-
-    // Return the last IP address found, or a message if none found
     return ipAddresses ? ipAddresses[ipAddresses.length - 1] : 'No IP address found';
 }
 
 
 function findPortDescriptor(text) {
-    // Regular expression to match the port descriptor (e.g., ge-0/1/3)
     const portRegex = /\b(?:ge|xe|et|fe)-\d+\/\d+\/\d+\b/g;
-
-    // Use the regular expression to find port descriptors in the text
     const portMatches = text.match(portRegex);
-
-    // Return the first port descriptor found, or a message if none found
     return portMatches ? portMatches[0] : 'No port descriptor found';
 }
 
@@ -205,15 +187,15 @@ function findAP(text){
     return deviceName;
 }
 
-function findBahlsenPort(text){
- // Regular expression to match the port descriptor (e.g., gr-0/0/0.4010)
-    const portRegex = /\bgr-\d+\/\d+\/\d+\.\d+\b/g;
-
-    // Use the regular expression to find port descriptors in the text
-    const portMatches = text.match(portRegex);
-
-    // Return the first port descriptor found, or a message if none found
-    return portMatches ? portMatches[0] : 'No port descriptor found';
+function findItemBW(text) {
+    const regex = /ItemName:\s*(\S+)/;
+    const match = text.match(regex);
+    return match ? match[1] : 'No interface found';
 }
 
+function findBahlsenPort(text){
+    const portRegex = /\bgr-\d+\/\d+\/\d+\.\d+\b/g;
+    const portMatches = text.match(portRegex);
+    return portMatches ? portMatches[0] : 'No port descriptor found';
+}
 
